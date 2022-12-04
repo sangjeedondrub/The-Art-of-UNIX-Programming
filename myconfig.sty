@@ -97,19 +97,58 @@ text-micro = μ
 \everymath{\displaystyle}
 
  %設置英文字體
-\setmainfont[Mapping=tex-text]{DejaVu Serif}
-\setsansfont[Mapping=tex-text]{DejaVu Sans}
-\setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+% \setmainfont[Mapping=tex-text]{DejaVu Serif}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
 
 %中文環境
-\RequirePackage[CJKnumber=true]{xeCJK}
-\xeCJKsetup{PunctStyle=plain}
-\setCJKmainfont[BoldFont=Adobe 黑体 Std,ItalicFont=Adobe 楷体 Std]
-    {Adobe 宋体 Std}%影響rmfamily字體
-\setCJKsansfont{Adobe 黑体 Std}%影響sffamily字體
-\setCJKmonofont{Adobe 楷体 Std}%影響ttfamily字體
+% \RequirePackage[CJKnumber=true]{xeCJK}
+% \xeCJKsetup{PunctStyle=plain}
+% \setCJKmainfont[BoldFont=Adobe 黑体 Std,ItalicFont=Adobe 楷体 Std]
+%     {Adobe 宋体 Std}%影響rmfamily字體
+% \setCJKsansfont{Adobe 黑体 Std}%影響sffamily字體
+% \setCJKmonofont{Adobe 楷体 Std}%影響ttfamily字體
 
-\RequirePackage{xltxtra} %put here to avoid some package option error. maybe this package is useless ?
+
+% \setCJKmainfont[BoldFont=WenQuanYi Micro Hei Mono,ItalicFont=Adobe Kaiti Std]{Adobe Song Std}
+% \setCJKsansfont{WenQuanYi Micro Hei Mono}
+% \setCJKmonofont{DejaVuSansMono YaHei NF}
+
+\setCJKmonofont{Noto Sans Mono CJK SC Regular}
+\setCJKmainfont[BoldFont = Noto Sans CJK SC]{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKfamilyfont{zhsong}{Noto Serif CJK SC}
+\setCJKfamilyfont{zhhei}{Noto Sans CJK SC}%
+
+\setCJKfamilyfont{song}{Adobe Song  Std}
+\setCJKfamilyfont{hei}{Adobe Heiti Std}
+\setCJKfamilyfont{fangsong}{FZFangSong-Z02}
+\setCJKfamilyfont{kai}{Adobe  Kaiti Std}
+\setCJKfamilyfont{lishu}{LiSu}
+\setCJKfamilyfont{youyuan}{YouYuan}
+
+\newcommand*{\song}{\CJKfamily{song}}                               % 楷书
+\newcommand*{\hei}{\CJKfamily{hei}}                                 % 楷书
+\newcommand*{\fangsong}{\CJKfamily{fangsong}}                       % 楷书
+\newcommand*{\kai}{\CJKfamily{kai}}                                 % 楷书
+\newcommand*{\lishu}{\CJKfamily{lishu}}                             % 楷书
+\newcommand*{\youyuan}{\CJKfamily{youyuan}}                         % 楷书
+
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}     % 初号
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} % 小初号
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}      % 一号
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}      % 二号
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  % 小二号
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}  % 三号
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}      % 四号
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  % 小四号
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}    % 五号
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}   % 小五号
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  % 六号
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    % 七号
+
+\usepackage{ctex}
+% \RequirePackage{xltxtra} %put here to avoid some package option error. maybe this package is useless ?
 
 %=============新的字符===========%
 \newfontfamily{\libertine}[Scale=1.5]{Linux Libertine O}
@@ -176,8 +215,13 @@ text-micro = μ
   \@cftbsnum #1\@cftasnum~\@cftasnumb%
 }
 
+
+
 %==============超鏈接===============%
-\RequirePackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref} %設置書簽和目錄鏈接等
+\RequirePackage[colorlinks=true,
+                linkcolor=gray,
+                citecolor=gray,
+                urlcolor=gray]{hyperref} %設置書簽和目錄鏈接等
 \newcommand{\hlabel}[1]{\phantomsection \label{#1}}%某一小段的引用
 
 
@@ -245,7 +289,7 @@ text-micro = μ
 \list{}{\rightmargin\leftmargin %右间距等于左间距
 \itemindent   2em
 }\item\relax
-\ttfamily}
+\textit}
 {\\
 \makebox[\linewidth][r]{\sffamily —\quoteauthor}
 \endlist}
@@ -272,6 +316,7 @@ text-micro = μ
   \begin{minipage}{#2}
         \setlength{\parindent}{24pt}
         \setlength{\parskip}{1.618ex}   %段落間距
+        \textsc
 }
  {
  \ignorespacesafterend%
@@ -279,8 +324,4 @@ text-micro = μ
   \end{lrbox}%
   \colorbox{\tempcolor}{\usebox{\tempbox}}}
 
-
-
 \endinput
-
-
